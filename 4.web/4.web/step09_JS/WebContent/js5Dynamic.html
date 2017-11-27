@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	동적 화면 처리 필수 기술
+	<br> 1. input tag 간의 데이터 이동
+	<br> 2. 논리적으로 화면 구성을 구분할 수 있는 안보이는 div라는 tag
+	<br>
+	
+	<font color = "red">
+	3. tag 별 데이터 출력 가능한 속성들이 다름<br>
+		3-1. div/p/span tag: 일반 text = innerText; <br>
+							html tag = innerHTML; <br>
+		3-2. input tag: value
+	</font>
+	<p>
+	<img id="img" src="img/flower.jpg" width="30%" height="40%">
+	<br>
+	<hr>
+	<br>
+	<input type="text" id="one">
+	<br>
+	<div id="two"></div>
+	<br>
+	<div id="three"></div>
+	<br>
+
+	<button onclick="myFun()">클릭</button>
+
+	<script type="text/javascript">
+		function myFun() {
+	//버튼 클릭시 one 과 three에 이름 출력하기
+		document.getElementById("one").value="희민";
+		document.getElementById("three").innerText="수현";
+		document.getElementById("two").innerHTML= "<b>수현</b>";
+		document.getElementById("img").src ="img/flower2.jpg";
+		}
+	</script>
+</body>
+</html>

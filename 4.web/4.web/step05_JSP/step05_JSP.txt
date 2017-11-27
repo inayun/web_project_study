@@ -1,0 +1,63 @@
+학습내용
+
+1. jsp 기본 tag (sun에서 제공한 표준 tag>
+	1-1. scripting tag
+	 	<% 시작... %>
+	- <%@ page import="" contentType=""%>
+	- page forward
+	
+	1-2. jsp action tag
+		<jsp : tag명>
+		<jsp:forward page="이동 page" />
+	
+	<jsp:forward page="이동 page">
+		<jsp:param name="" value="" />
+	</jsp:forward>
+	
+2. EL tag
+	- ${}
+	- 자바 데이터 출력, tag 내부에서 연산식 가능, null인 경우 client가 blank 로 view
+	- 쿠키 코드 간결하게 지원
+	- JSTL tag의 기능이 잘 활용될 수 있도록 지원
+	
+	- 문법
+	${requestScope.별칭}
+	${sessionScope.별칭}
+	${applicationScope.별칭}
+	
+	${}
+	${param.웹 쿼리 스트링 별칭}
+	${cookie.별칭.value}
+3. JSTL tag 학습
+	1. 개발 셋팅 필수 단계
+		- 외부 library 개발 환경으로 download
+		- db driver 와 같은 셋팅 전처리 필요
+		- web server 의 web application의 library 절대 경로
+		 	WEB-INF/lib/*.jar
+	2. jsp 파일별 반드시 jstl 사용하겠다는 선언 필수
+	
+4.client만의 고유 데이터 저장 기법
+	1. forward 방식시 사용되는 객체
+		- HttpServletRequest
+		- jsp의 내장 객체(request)
+		
+	2. page이동 방식과 무관하게 사용하는 객체
+		- HttpSession : jsp의 내장 객체 (session)
+		- Cookie
+
+5. 서버가 서비스를 하기 위한 초기화 작업
+	1. 완벽한 web application을 서버에 배치
+	2. 서버를 시작한다
+		* 서버 관점에서 바라보기
+			1. 서버 자체의 설정 정보 확인
+			2. 서비스 하고자하는 application 들의 설정 파일들 검증 및 초기화
+			3. web application 서비스 시작
+			4. web app 만의 servletContext라는 객체 생성
+				- 모든 user(servlet과 jsp코드) 가 조건없이 데이터를 공유하고(setAttribute()) 공유 받을 수(getAttribute()) 있는 유일한 객체
+				- 개발자가 생성 권한 없음, web server 가 직접 생성
+				
+			* 참고 :
+			ServletContext 도 내장 객체
+			jsp는 application 변수명으로 사용
+	3. 서비스를 한다
+	

@@ -1,0 +1,97 @@
+--12.sequence.sql
+/*
+1. 시퀀스 
+
+	-순차적인 숫자값으로 게시물등 고유한 번호 관리용으로 적합한 기술
+	-자동으로 반영할수 있는 매우 유용한 기술 
+	- my sql : autoincrement와 동일
+
+2. 대표적인 활용 영역
+	- 게시물 글번호에 주로 사용
+	-현 추세 : 중간 번호를 삭제했을 경우에 재 정렬 가긊적 비추
+		실행 performance 가 현저히 저하
+3. 특징
+	- 절대 중복 불가 
+	- 하나의 sequence 는 다수의 table에서 공유는 가능하나 가급적 비추
+
+4. 참고
+	- 10g는 seq를 1부터 정확히 	시작 및 반영
+	- 11g는 seq가 2부터 되는 case 발생  ???????
+		- 해결책 : 시작 index값을 seq생성시에 반영 	 */
+
+5. 명명 권장 규칙
+	- 적용 table명 + 적용 칼럼명 + seq 이런식의 문구들 조합
+
+
+6. 속성
+	1.nextval
+	- 시퀀스값 생성 및 insert 시에 주로 사용
+	2.currval
+	- 현 시퀀스값 검색시 사용되는 속성
+	- 주의사항: nextval 단 한번도 호출되지 않았을경우 사용 불가
+	
+7. 정리
+	
+	- create / drop
+		: view, sequence, index
+	- create / drop / alter
+		: table
+	- select : query - 검색
+	- insert / update / delete : dml
+	
+--1. sequence 생성 명령어
+
+drop table seq_test;
+create table seq_test(
+	no1 number(2),
+	no2 number(2)
+);
+create sequence seq_test_seq_no1;
+
+
+
+--2. seq~를 활용한 insert
+	-- 기본적으로 생성한 경우 1씩 자동 증가
+insert into seq_test values(seq_test_seq_no1.nextval, 1);
+insert into seq_test values(seq_test_seq_no1.nextval, 2);
+insert into seq_test values(seq_test_seq_no1.nextval, 3);
+select * from seq_test;
+
+
+--3. 다수의 table에서 하나의 seq를 공동 사용시?
+create table seq_test2(
+	no1 number(2),
+	no2 number(2)
+);
+insert into seq_test2 values(seq_test_seq_no1.nextval, 1);
+insert into seq_test2 values(seq_test_seq_no1.nextval, 2);
+
+insert into seq_test values(seq_test_seq_no1.nextval, 1);
+
+select * from seq_test;
+select * from seq_test2;
+
+--4. 시작index 지정 및 증가치도 지정하는 seq 생성 명령어
+
+
+ 
+delete from seq_test;
+delete from seq_test2;
+commit;
+insert into seq_test values(seq2_test.nextval, 1);
+insert into seq_test values(seq2_test.nextval, 2);
+insert into seq_test values(seq2_test.nextval, 2);
+select * from seq_test;
+
+--5. seq 삭제 명령어
+
+drop sequence seq2_test;
+
+--6. 현 sequence의 데이터값 검색하기
+create sequence seq2_test start with 1 increment by 2 maxvalue 10;
+
+select seq2_text.currval from dual;
+select seq2_text.nextval from dual;
+
+select seq2_text.currval from dual;
+

@@ -1,0 +1,43 @@
+* 주제 : 재능기부 프로젝트
+	- 어떤 기부자가 수혜자에게 어떤 재능기부를 하는지에 대한 CRUD 로직
+
+[1] Mission 
+	1. 상속, 다형성 적용해 보기
+	2. 동일한 주제의 소스 확장하기
+	
+ 
+[2] 기대 효과
+	1. 분석 능력 향상, 코딩 능력 향상, 문제 해결 능력 향상
+	2.	상속 다형성 이해하기
+
+
+[3] 주제
+	1. 재능 기부
+	2. domain
+		사람 - People
+		기부자 - Activist
+		수혜자 - Recipient
+		재능기부 - Probono
+		기부자, 수혜자, 재능기부 정보로 실제 진행중인 재능기부 프로젝트 - ProbonoProject
+
+
+[4] 실습 방법 - 제공된 소스 확장하기
+	1. 새롭게 추가된 소스
+		People.java
+		
+	2. 수정 소스
+		a. Activist.java
+		b. Recipient.java
+			- People 상속
+			- a + b : 이클립스로 자동 완성하기 
+			
+		c. ProbonoProjectService.java의 projectUpdate()
+	
+	3. RunningStartView.java
+		분석하기				
+			
+	
+
+			
+			
+			

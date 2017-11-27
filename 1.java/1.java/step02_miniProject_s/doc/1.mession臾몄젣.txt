@@ -1,0 +1,45 @@
+주제 : 재능기부 프로젝트
+	- 어떤 기부자가 수혜자에게 어떤 재능기부를 하는지에 대한 CRUD 로직
+
+[1] Mission 
+	1. 자바 기본 syntax와 배열까지만 학습된 내용을 기반으로 미완성 예제 완성하기
+ 
+ 
+[2] 기대 효과
+	1. 분석 능력 향상, 코딩 능력 향상, 문제 해결 능력 향상
+	2. SingleTon design Pattern 이해하기
+	3. 자바 기본 Syntax와 배열 활용에 익숙해지기 
+
+
+[3] 주제
+	1. 재능 기부
+	2. domain
+		기부자 - Activist
+		수혜자 - Recipient
+		재능기부 - Probono
+		기부자, 수혜자, 재능기부 정보로 실제 진행중인 재능기부 프로젝트 - ProbonoProject
+
+
+[4] 소스 구조
+	* 3.ClassDiagram.gif 파일 참조
+	
+	1. Activist.java 
+		1. 변수는 선언되어 있음
+		2. 이클립스 자동 완성 기능을 활용하셔서 생성자, get/set 메소드 만들기
+		
+	2. Recipient.java 
+		1. 변수는 선언되어 있음
+		2. 이클립스 자동 완성 기능을 활용하셔서 생성자, get/set 메소드 만들기
+		
+	3. ProbonoProjectService.java		
+		1. 분석하기
+		2. 미완성 메소드 완성하기
+			a. getProbonoProject() 
+				- 프로젝트 명으로 해당 프로젝트의 모든 정보 반환하기
+			b. projectInsert() 
+				- 프로젝트 저장하기
+			
+			
+			
+			
+			

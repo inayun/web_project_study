@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>req.html</title>
+</head>
+<body>
+
+	
+	<br> 화면 이동 없이도 단순 자바스크립트 객체로 서버와 통신 가능한 기술 학습
+	<br>
+	<hr>
+	<br>
+
+	<div id="dataview"></div>
+	<br>
+	<hr>
+	<br>
+	<button onclick="myFun()">1. 서버 데이터 단순 요청 및 응답 처리</button>
+
+
+	<script type="text/javascript" src="../scripts/jquery-3.1.1.js"></script>
+	<script type="text/javascript">
+		function myFun() {
+			$.ajax({
+				url : "res.jsp",   
+				data : { msg:"kdata"},
+				method : "post",
+				dataType:"html", //(mime type)
+				success : function(result) {
+					// var jsonData = JSON.parse(result);
+					//$("#dataview").html(jsonData.name);
+					$("#dataview").html(result);
+				}
+			});
+		} //end of myFun()
+	</script>
+
+</body>
+</html>
+
+
+<!--  jQuery ajax
+1. 복잡한 자바스크립트 코드 대비 함수 사용이 쉽다
+2. 장점 : 모든 브라우저에서 정상 실행될 수 있도록 내부적으로 지원 (cross browser)
+	- 일반 js로 개발할 경우 브라우저별 고유한 특징 고려해야함
+3. 함수 요소
+{
+	요청 url,
+	전송 데이터,
+	요청 방식,
+	응답 데이터 포멧,
+	응답 상태에 따른 처리 기술
+	...
+}
+	
+
+ -->
